@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html class="loginBj">
+<head>
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html, body {
+            overflow: hidden;
+        }
+
+        .loginBj {
+            background: -webkit-linear-gradient(top, #2aa8c5 0%, #0250bf 100%);
+            height: 100%;
+        }
+
+        /* 加载旋转动画 */
+        /*.load{width:100%;height:100%;position:absolute;background: #061537;background-size:cover;top:0;left:0;z-index:999;opacity:1;transition:opacity 1s;cursor:pointer;}*/
+        .load_img {
+            position: absolute;
+            left: calc(50% - 520px);
+            top: calc(50% - 520px);
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .load_img img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .load_img .jzxz1 {
+            animation: xz1 8s infinite linear;
+        }
+
+        .load_img .jzxz2 {
+            animation: xz2 7s infinite linear;
+        }
+
+        .jzwidth {
+            width: 1040px;
+        }
+
+        @keyframes xz1 {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes xz2 {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(-180deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .qpimgbox {
+            width: 506px;
+            height: 506px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotate(0deg) translate(-50%, -50%);
+            transform-origin: left top;
+            z-index: 9;
+        }
+
+        .qpimgboxActive {
+            transform: rotate(2160deg) translate(-50%, -50%);
+            transition: all 4s linear;
+        }
+
+
+        .qpimg {
+            position: absolute; /*left:50%;top:50%;transform:translate(-50%, -50%);*/
+        }
+
+        .qpimg1 {
+            width: 200px;
+            top: 50%;
+            left: 50%; /*margin-left:-500px;margin-top:-360px;*/
+            transform: rotate(0deg) translate(calc(-50% - 400px), calc(-50% - 260px));
+        }
+
+        .qpimg2 {
+            width: 200px;
+            top: 50%;
+            left: 50%; /*margin-left:430px;margin-top:-190px;*/
+            transform: rotate(0deg) translate(calc(-50% + 500px), calc(-50% - 120px));
+        }
+
+        .qpimg3 {
+            width: 200px;
+            top: 50%;
+            left: 50%; /*margin-left:-730px;margin-top:-10px;*/
+            transform: rotate(0deg) translate(calc(-50% - 600px), calc(-50% + 120px));
+        }
+
+        .qpimg4 {
+            width: 200px;
+            top: 50%;
+            left: 50%; /*margin-left:200px;margin-top:160px;*/
+            transform: rotate(0deg) translate(calc(-50% + 300px), calc(-50% + 260px));
+        }
+
+        .qpactive.qpimg1 {
+            width: 80px;
+            transform: rotate(0deg) translate(-50%, -50%);
+            transition: all 4s;
+        }
+
+        .qpactive.qpimg2 {
+            width: 80px;
+            transform: rotate(0deg) translate(-50%, -50%);
+            transition: all 4s;
+        }
+
+        .qpactive.qpimg3 {
+            width: 80px;
+            transform: rotate(0deg) translate(-50%, -50%);
+            transition: all 4s;
+        }
+
+        .qpactive.qpimg4 {
+            width: 80px;
+            transform: rotate(0deg) translate(-50%, -50%);
+            transition: all 4s;
+        }
+
+
+        .overlay_loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            animation-name: rotateAnim;
+            animation-duration: 0.35s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .loaderbox div {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid #00a0e9;
+            position: absolute;
+            top: 2px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .loaderbox div:nth-child(odd) {
+            border-top: none;
+            border-left: none;
+        }
+
+        .loaderbox div:nth-child(even) {
+            border-bottom: none;
+            border-right: none;
+        }
+
+        .loaderbox div:nth-child(2) {
+            border-width: 2px;
+            left: -2px;
+            top: -2px;
+            width: 12px;
+            height: 12px;
+        }
+
+        .loaderbox div:nth-child(3) {
+            border-width: 2px;
+            left: -1px;
+            top: 3px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .loaderbox div:nth-child(4) {
+            border-width: 3px;
+            left: -1px;
+            top: -4px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .loaderbox div:nth-child(5) {
+            border-width: 3px;
+            left: -1px;
+            top: 4px;
+            width: 32px;
+            height: 32px;
+        }
+
+        .loaderbox div:nth-child(6) {
+            border-width: 4px;
+            left: 0px;
+            top: -4px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .loaderbox div:nth-child(7) {
+            border-width: 4px;
+            left: 0px;
+            top: 6px;
+            width: 50px;
+            height: 50px;
+        }
+
+        @keyframes rotateAnim {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /*登录窗口*/
+        input {
+            outline: medium;
+            border: none;
+        }
+
+        .loginbgbox2 {
+            border: #2e8ccd solid 8px;
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+        }
+
+        .loginbgbox1 {
+            border: #7fb8f2 solid 5px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+        }
+
+        .loginbox { /*position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);z-index:20;*/
+            border-radius: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+            background: #258bc2;
+            width: 320px;
+            height: 320px;
+            box-sizing: border-box;
+            padding: 0.1px;
+            overflow: hidden;
+        }
+
+        .loginconbox {
+            width: 280px;
+            margin-top: 63px;
+            margin-left: 17px;
+        }
+
+        .logininpbox {
+            margin-bottom: 30px;
+        }
+
+        .logininpbox:after {
+            display: block;
+            height: 0px;
+            clear: both;
+            content: "";
+            visibility: hidden;
+        }
+
+        .logininptit {
+            float: left;
+            font-size: 20px;
+            font-family: "微软雅黑";
+            color: #fff;
+            height: 38px;
+            line-height: 38px;
+            margin-right: 20px;
+        }
+
+        .logininput {
+            height: 38px;
+            line-height: 38px;
+            border-radius: 3px;
+            width: 220px;
+            box-sizing: border-box;
+            padding: 0px 14px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .loginbtn {
+            display: block;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-size: 30px;
+            line-height: 70px;
+            margin-top: 36px;
+            cursor: pointer;
+            color: #00a0e9;
+        }
+
+        .loginbtn:active {
+            background: rgba(255, 255, 255, 1);
+        }
+
+
+        .logintitle {
+            font-size: 30px;
+            line-height: 30px;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 74px;
+        }
+    </style>
+</head>
+<body class="loginBj">
+
+<!-- <div class="overlay_loader">
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div> -->
+
+<div class="load">
+    <div class="load_img">
+        <img class="jzxz1_1 jzwidth" src="/images/jzxz1.png">
+        <img class="jzxz2_2 jzwidth" src="/images/jzxz2.png">
+    </div>
+</div>
+
+<div class="qpimgbox">
+    <img src="/images/qpimg1.png" class="qpimg qpimg1">
+    <img src="/images/qpimg2.png" class="qpimg qpimg2">
+    <img src="/images/qpimg3.png" class="qpimg qpimg3">
+    <img src="/images/qpimg4.png" class="qpimg qpimg4">
+</div>
+
+<div class="loginbgbox2">
+    <div class="loginbgbox1">
+        <div class="loginbox">
+            <div class="logintitle">青岛检察院</div>
+            <div class="loginconbox">
+                <div class="logininpbox">
+                    <span class="logininptit">账号</span>
+                    <input class="logininput" type="text">
+                </div>
+                <div class="logininpbox">
+                    <span class="logininptit">密码</span>
+                    <input class="logininput" type="password">
+                </div>
+            </div>
+            <span class="loginbtn">登 录</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="/js/jquery.arctext.js"></script>
+<script type="text/javascript">
+    $(".loginbtn").click(function () {
+        $(".qpimg").addClass("qpactive");
+        $(".loader").addClass("loaderbox");
+        $(".qpimgbox").addClass("qpimgboxActive");
+
+        $(".jzxz1_1").addClass("jzxz1");
+        $(".jzxz2_2").addClass("jzxz2");
+
+
+        setTimeout(function () {
+            location.href = '/login'
+        }, 2500);
+    });
+
+
+    $(function () {
+        $(".logintitle").arctext({
+            radius: 140
+        })
+    })
+</script>
+</body>
+</html>

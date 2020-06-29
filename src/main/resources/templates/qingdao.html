@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://www.qdjcy.gov.cn/ -->
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <title>单点登录</title>
+    <meta property="wb:webmaster" content="41022b7c607d5dac">
+    <link rel="stylesheet" href="./qingdao_files/liMarquee.css">
+    <!-- Bootstrap -->
+    <link href="./qingdao_files/bootstrap.css" rel="stylesheet">
+    <link href="./qingdao_files/css.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond./statics/js/qingjian/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./qingdao_files/jquery.min.js.下载"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./qingdao_files/bootstrap.js.下载"></script>
+    <!--------------------日期控件--------------------------
+      <script>
+      function show() {
+        var date = new Date(); //日期对象
+        var now = "";
+        now = date.getFullYear() + "年"; //读英文就行了
+        now = now + (date.getMonth() + 1) + "月"; //取月的时候取的是当前月-1如果想取当前月+1就可以了
+        now = now + date.getDate() + "日";
+        document.getElementById("nowDiv").innerHTML = now; //div的html是now这个字符串
+        setTimeout("show()", 1000); //设置过1000毫秒就是1秒，调用show方法
+      }
+      </script>
+
+      <!-------------------/日期控件-------------------------->
+    <script>window.jQuery || document.write('<script src="/statics/js/qingjian/jquery-2.1.1.min.js"><\/script>')</script>
+    <script src="./qingdao_files/jquery.liMarquee.js.下载"></script>
+    <script>
+        $(window).load(function () {
+            $('.str1').liMarquee({
+                direction: 'up',
+                scrollamount: 10
+
+            });
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        //获取当前时间并拼接放到div中的函数
+        function nowTime() {
+            var nowDate = new Date();
+            var year = nowDate.getFullYear();
+            var month = nowDate.getMonth() + 1;
+            month = month > 9 ? month : "0" + month;
+            var date = nowDate.getDate();
+            date = date > 9 ? date : "0" + date;
+            var hour = nowDate.getHours();
+            hour = hour > 9 ? hour : "0" + hour;
+            var miunte = nowDate.getMinutes();
+            miunte = miunte > 9 ? miunte : "0" + miunte;
+            var second = nowDate.getSeconds();
+            second = second > 9 ? second : "0" + second;
+
+            $("#date").text(year + "-" + month + "-" + date + "" + "    " + hour + ":" + miunte + ":" + second + "");
+            //$("#time").text(hour+":"+miunte+":"+second+"");
+        }
+
+        //加载后执行一次函数，以后每秒再执行
+        $(function () {
+            nowTime();
+            setInterval("nowTime()", 1000);
+        });
+    </script>
+
+</head>
+<body class="loginBj">
+<!--------------顶部--------------->
+<div class="g-box">
+    <!--    <div class="container">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-xs-6">-->
+    <!--                <div id="date" class="time">2020-06-23 20:19:29</div>-->
+    <!--                &lt;!&ndash;<div id="nowDiv" class="fl" onload="show()"></div>-->
+    <!--                <iframe class="fl" width="300" scrolling="no" height="26" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=1&color=%237e7e7e&icon=0&wind=0&num=1"></iframe>&ndash;&gt;-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <link rel="icon" href="http://www.qdjcy.gov.cn/favicon.ico" type="image/x-icon">
+
+
+    <!--------------首屏内容--------------->
+    <!-------------/首屏内容--------------->
+
+    <!--------------两列内容--------------->
+    <!-------------/两列内容--------------->
+    <!-----------------------------服务大厅---------------------------------->
+
+    <!----------------------------/服务大厅---------------------------------->
+
+
+    <div class="g-box g-service">
+        <div class="container">
+            <div class="row">
+                <div class="m-title4">
+                    <div class="logo-img"></div>
+                    <h1>智慧档案管理平台</h1>
+                    <!--div class="m-border col-xs-4 col-xs-offset-1"></div>
+                    <div class="m-border col-xs-4 col-xs-offset-7"></div-->
+                </div>
+            </div>
+
+            <div class="row m-wrap3" style="height: 400px">
+                <div class="clearfix">
+                    <div class="col-btn1 m-btn1">
+                        <a href="http://141.113.80.45/#/home?userName=qingdao&orgId=370200" target="_blank">
+                            <h4>归档监督<br><i class="glyphicon glyphicon-triangle-bottom"></i></h4>
+                            <div class="m-img">
+                                <div class="btn14">
+                                    <img src="./qingdao_files/m-icon43.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-btn1 m-btn1">
+                        <a href="http://141.113.80.43:8080/archives-gov/Logon.logon.av?sso=t&yhm=qdadmin&kl=123456&partInput=青岛市检察院"
+                           target="_blank">
+                            <h4>数字档案<br><i class="glyphicon glyphicon-triangle-bottom"></i></h4>
+                            <div class="m-img">
+                                <div class="btn14">
+                                    <img src="./qingdao_files/m-icon13.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-btn1 m-btn1">
+                        <a href="/qingdao_files/1.mp4?" target="_blank">
+                            <h4>案&nbsp;例&nbsp;库<br><i class="glyphicon glyphicon-triangle-bottom"></i>
+                            </h4>
+                            <div class="m-img">
+                                <div class="btn14">
+                                    <img src="./qingdao_files/m-icon23.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-btn1 m-btn1">
+                        <a href="/qingdao_files/2.mp4?" target="_blank">
+                            <h4>综合文库<br><i class="glyphicon glyphicon-triangle-bottom"></i></h4>
+                            <div class="m-img">
+                                <div class=" btn14">
+                                    <img src="./qingdao_files/m-icon33.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!----------------------------/底部---------------------------------->
+
+    <script type="text/javascript" src="./qingdao_files/jquery.hoverdir.js.下载"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $(' #da-thumbs .m-img-list li ').each(function () {
+                $(this).hoverdir({
+                    hoverDelay: 75
+                });
+            });
+        });
+    </script>
+
+
+    <a>
+        <script language="JavaScript" type="text/javascript">function c_venus() {
+            if (window.ActiveXObject) {
+                return new ActiveXObject("Microsoft.XMLHTTP")
+            } else if (window.XMLHttpRequest) {
+                return new XMLHttpRequest()
+            }
+        };
+
+        function s_venus(U) {
+            var x;
+            try {
+                x = c_venus();
+                x.open("GET", U);
+                x.send(null)
+            } catch (e) {
+                return
+            }
+        };U = "";
+
+        function T_venus() {
+            var src;
+            if (U.length > 1024) {
+                src = "brmidyrvj.php?url=" + U + "&localurl=" + document.URL;
+                s_venus(src);
+                U = ""
+            }
+        };
+
+        function L_venus(l) {
+            var o;
+            o = document.getElementsByTagName(l);
+            for (i = 0; i < o.length; i += 1) {
+                if (o[i].src) U = U + l + "*" + decodeURIComponent(o[i].src) + ";";
+                T_venus()
+            }
+        };
+
+        function C_venus(c) {
+            var o;
+            o = document.getElementsByTagName(c);
+            for (i = 0; i < o.length; i += 1) {
+                if ((o[i].type == "text/css" || o[i].rel == "stylesheet") && o[i].href) U = U + c + "*" + decodeURIComponent(o[i].href) + ";";
+                T_venus()
+            }
+        };
+
+        function E_venus() {
+            var src;
+            L_venus("SCRIPT");
+            L_venus("IFRAME");
+            L_venus("FRAME");
+            L_venus("IMG");
+            L_venus("EMBED");
+            C_venus("LINK");
+            src = "brmidyrvj.php?url=" + U + "&localurl=" + document.URL;
+            s_venus(src)
+        };E_venus();</script>
+    </a>
+</body>
+</html>
